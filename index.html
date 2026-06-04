@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="id" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bukhari Digital Store</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Outfit', sans-serif; }
+    .card-hover { transition: transform 0.3s, box-shadow 0.3s; }
+    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+    @keyframes float { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-8px); } }
+    .float-anim { animation: float 3s ease-in-out infinite; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    .fade-up { animation: fadeUp 0.6s ease forwards; }
+    .fade-up-2 { animation: fadeUp 0.6s ease 0.2s forwards; opacity:0; }
+    .fade-up-3 { animation: fadeUp 0.6s ease 0.4s forwards; opacity:0; }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ <script src="/_sdk/telemetry_sdk.js"></script></head>
+ <body class="h-full">
+  <div id="app" class="h-full w-full overflow-auto" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);"><!-- Hero -->
+   <header class="text-center pt-16 pb-10 px-4 fade-up">
+    <div class="float-anim inline-block mb-4">
+     <div class="w-24 h-24 rounded-full bg-gradient-to-br from-emerald-400 to-teal-600 flex items-center justify-center mx-auto shadow-lg shadow-emerald-500/30"><i data-lucide="store" style="width:44px;height:44px;color:white;"></i>
+     </div>
+    </div>
+    <h1 id="title-el" class="text-3xl md:text-4xl font-800 text-white mb-2">Bukhari Store</h1>
+    <p id="tagline-el" class="text-emerald-300 text-lg font-300">Layanan &amp; Karya Digital Terbaik ✨</p>
+   </header><!-- Cards -->
+   <main class="max-w-2xl mx-auto px-4 pb-16 grid gap-6 md:grid-cols-2"><!-- Sociabuzz -->
+    <div class="card-hover fade-up-2 rounded-2xl overflow-hidden" style="background: linear-gradient(160deg, #1e3a3a, #0f2929); border:1px solid #2dd4bf33;">
+     <div class="p-6">
+      <div class="flex items-center gap-3 mb-4">
+       <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center"><i data-lucide="zap" style="width:20px;height:20px;color:#34d399;"></i>
+       </div>
+       <h2 class="text-white font-600 text-xl">Sociabuzz</h2>
+      </div>
+      <p class="text-slate-300 text-sm mb-3">Dukungan, request, dan layanan custom langsung dari Bukhari.</p>
+      <p id="price-sociabuzz" class="text-emerald-400 font-700 text-lg mb-5">Mulai Rp 10.000</p><a href="https://sociabuzz.com/bukhari5670" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-600 px-5 py-2.5 rounded-xl transition"> <i data-lucide="external-link" style="width:16px;height:16px;"></i> Kunjungi </a>
+     </div>
+    </div><!-- KaryaKarsa -->
+    <div class="card-hover fade-up-3 rounded-2xl overflow-hidden" style="background: linear-gradient(160deg, #1e2a3a, #0f1929); border:1px solid #60a5fa33;">
+     <div class="p-6">
+      <div class="flex items-center gap-3 mb-4">
+       <div class="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center"><i data-lucide="palette" style="width:20px;height:20px;color:#60a5fa;"></i>
+       </div>
+       <h2 class="text-white font-600 text-xl">KaryaKarsa</h2>
+      </div>
+      <p class="text-slate-300 text-sm mb-3">Karya digital eksklusif, konten premium, dan kreasi original.</p>
+      <p id="price-karyakarsa" class="text-blue-400 font-700 text-lg mb-5">Mulai Rp 15.000</p><a href="https://karyakarsa.com/bukhari" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-400 text-slate-900 font-600 px-5 py-2.5 rounded-xl transition"> <i data-lucide="external-link" style="width:16px;height:16px;"></i> Kunjungi </a>
+     </div>
+    </div>
+   </main><!-- Footer -->
+   <footer class="text-center pb-10 text-slate-500 text-sm">
+    <p>© 2024 Bukhari · Semua hak dilindungi</p>
+   </footer>
+  </div>
+  <script>
+    lucide.createIcons();
+
+    const defaultConfig = {
+      store_title: "Bukhari Store",
+      tagline: "Layanan & Karya Digital Terbaik ✨",
+      sociabuzz_price: "Mulai Rp 10.000",
+      karyakarsa_price: "Mulai Rp 15.000",
+      background_color: "#0f172a",
+      surface_color: "#1e3a3a",
+      text_color: "#ffffff",
+      primary_action: "#34d399",
+      secondary_action: "#60a5fa",
+      font_family: "Outfit",
+      font_size: 16
+    };
+
+    window.elementSdk.init({
+      defaultConfig,
+      onConfigChange: async (config) => {
+        document.getElementById('title-el').textContent = config.store_title || defaultConfig.store_title;
+        document.getElementById('tagline-el').textContent = config.tagline || defaultConfig.tagline;
+        document.getElementById('price-sociabuzz').textContent = config.sociabuzz_price || defaultConfig.sociabuzz_price;
+        document.getElementById('price-karyakarsa').textContent = config.karyakarsa_price || defaultConfig.karyakarsa_price;
+
+        const font = config.font_family || defaultConfig.font_family;
+        document.body.style.fontFamily = `${font}, Outfit, sans-serif`;
+
+        const size = config.font_size || defaultConfig.font_size;
+        document.getElementById('title-el').style.fontSize = `${size * 2.2}px`;
+        document.getElementById('tagline-el').style.fontSize = `${size * 1.1}px`;
+
+        const bg = config.background_color || defaultConfig.background_color;
+        document.getElementById('app').style.background = `linear-gradient(135deg, ${bg} 0%, #1e293b 50%, ${bg} 100%)`;
+
+        const primary = config.primary_action || defaultConfig.primary_action;
+        document.getElementById('price-sociabuzz').style.color = primary;
+
+        const secondary = config.secondary_action || defaultConfig.secondary_action;
+        document.getElementById('price-karyakarsa').style.color = secondary;
+      },
+      mapToCapabilities: (config) => ({
+        recolorables: [
+          { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
+          { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
+          { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
+          { get: () => config.primary_action || defaultConfig.primary_action, set: (v) => { config.primary_action = v; window.elementSdk.setConfig({ primary_action: v }); } },
+          { get: () => config.secondary_action || defaultConfig.secondary_action, set: (v) => { config.secondary_action = v; window.elementSdk.setConfig({ secondary_action: v }); } }
+        ],
+        borderables: [],
+        fontEditable: { get: () => config.font_family || defaultConfig.font_family, set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); } },
+        fontSizeable: { get: () => config.font_size || defaultConfig.font_size, set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); } }
+      }),
+      mapToEditPanelValues: (config) => new Map([
+        ["store_title", config.store_title || defaultConfig.store_title],
+        ["tagline", config.tagline || defaultConfig.tagline],
+        ["sociabuzz_price", config.sociabuzz_price || defaultConfig.sociabuzz_price],
+        ["karyakarsa_price", config.karyakarsa_price || defaultConfig.karyakarsa_price]
+      ])
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a06a942efd535937',t:'MTc4MDYxNDI4OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
